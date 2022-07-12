@@ -1,6 +1,9 @@
-import Expenses from "./components/Expenses";
+import React from "react";
 
-function App() {
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -28,12 +31,17 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log(expense);
+    //received data from the form.
+  };
+
   return (
     <div>
-      <h1>Let's get started!</h1>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses expenses={expenses} />
     </div>
   );
-}
+};
 
 export default App;
